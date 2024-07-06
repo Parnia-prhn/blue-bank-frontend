@@ -3,8 +3,8 @@ import { Button } from "antd";
 export default function NavHeader() {
   return (
     <div>
-      <div className="flex flex-col">
-        <ul>
+      <div className="">
+        <ul className="flex  flex-col justify-end space-y-3 ">
           <li>
             <Button type="link">خانه</Button>
           </li>
@@ -23,10 +23,14 @@ export default function NavHeader() {
           <li>
             <Button type="link">همکاری تجاری</Button>
           </li>
+          <li>
+            <div>
+              <Button type="primary" className="p-5">
+                باز کردن حساب بلو
+              </Button>
+            </div>
+          </li>
         </ul>
-        <div>
-          <Button type="primary">باز کردن حساب بلو</Button>
-        </div>
       </div>
     </div>
   );

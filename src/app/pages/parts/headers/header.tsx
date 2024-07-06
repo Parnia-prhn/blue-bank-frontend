@@ -16,39 +16,50 @@ export default function Header() {
   };
   return (
     <div className="bg-white w-full h-auto ">
-      <div className="flex flex-row-reverse justify-end">
-        <img alt="blue-bank-logo" src={blueLogo} className="w-60 h-55" />
-      </div>
-      <div className="lg:flex lg:flex-row-reverse lg:justify-start hidden ">
-        <IoIosMenu
-          className="w-40 flex justify-end p-3 m-3 lg:hidden"
-          onClick={showDrawer}
-        />
-        <ul className="p-4 m-4">
-          <li className="hover:border-4 hover:border-t-blue-800">
-            <Button type="link">خانه</Button>
-          </li>
-          <li className="hover:border-4 hover:border-t-blue-800">
-            <Button type="link">موقعیت های شغلی</Button>
-          </li>
-          <li className="hover:border-4 hover:border-t-blue-800">
-            <Button type="link">سوالات متداول</Button>
-          </li>
-          <li className="hover:border-4 hover:border-t-blue-800">
-            <Button type="link">بلاگ</Button>
-          </li>
-          <li className="hover:border-4 hover:border-t-blue-800">
-            <Button type="link">درباره ما</Button>
-          </li>
-          <li className="hover:border-4 hover:border-t-blue-800">
-            <Button type="link">همکاری تجاری</Button>
-          </li>
-        </ul>
-        <div>
-          <Button type="primary">باز کردن حساب بلو</Button>
+      <div className="flex flex-row-reverse justify-center">
+        <div className="flex flex-row-reverse">
+          <IoIosMenu
+            className="block col-start-0 justify-start size-10 p-3 m-3 lg:hidden"
+            onClick={showDrawer}
+          />
+
+          <img
+            alt="blue-bank-logo"
+            src={blueLogo}
+            className="size-16 m-3 justify-center justify-items-end lg:justify-end ml-9"
+          />
+        </div>
+        <div className="mr-8  justify-end hidden lg:block">
+          <ul className="pt-0 mt-0 flex flex-row-reverse ">
+            <li className="p-3 border-transparent hover:border-4 hover:border-t-blue-800 ">
+              <Button type="link">خانه</Button>
+            </li>
+            <li className="p-3 border-transparent hover:border-4 hover:border-t-blue-800">
+              <Button type="link">موقعیت های شغلی</Button>
+            </li>
+            <li className="p-3 border-transparent hover:border-4 hover:border-t-blue-800">
+              <Button type="link">سوالات متداول</Button>
+            </li>
+            <li className="p-3 border-transparent hover:border-4 hover:border-t-blue-800">
+              <Button type="link">بلاگ</Button>
+            </li>
+            <li className="p-3 border-transparent hover:border-4 hover:border-t-blue-800">
+              <Button type="link">درباره ما</Button>
+            </li>
+            <li className="p-3 border-transparent hover:border-4 hover:border-t-blue-800">
+              <Button type="link">همکاری تجاری</Button>
+            </li>
+            <li>
+              <div>
+                <Button type="primary" className="p-5 m-3">
+                  باز کردن حساب بلو
+                </Button>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-      <Drawer title="Basic Drawer" onClose={onClose} open={open}>
+      <Drawer onClose={onClose} open={open}>
         <NavHeader />
       </Drawer>
     </div>
