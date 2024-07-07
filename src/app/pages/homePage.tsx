@@ -14,7 +14,7 @@ export default function HomePage() {
         >
           <HeaderPage />
         </Header>
-        <Content>Content</Content>
+        <Content>main content</Content>
         <Footer>
           <MainFooter />
         </Footer>
