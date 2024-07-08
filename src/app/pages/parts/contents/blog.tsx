@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Pagination, Card } from "antd";
+import { Button } from "antd";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 const blogs = [
   {
     id: 1,
@@ -11,12 +13,18 @@ const blogs = [
     paragraph: [
       {
         id: 1,
+        title: "نحوه‌ی‌ دریافت کد ثنا",
+        text: "کد ثنا، کدی است که می‌توانید با استفاده از آن وارد سامانه‌‌های قضایی شده و پرونده‌های قضایی خود را پیگیری کنید. کد ثنا به‌صورت حضوری و غیر حضوری قابل دریافت است. با ثبت‌نام در سامانه‌ی ثنا و طی کردن مراحل احراز هویت، با استفاده از کدی که به شما تعلق می‌گیرد، می‌توانید از برخی بانک‌ها و موسسه‌های اعتباری وام دریافت کنید.",
+        image: "",
+      },
+      {
+        id: 2,
         title: "دریافت کد ثنا به صورت حضوری",
         text: "اگر می‌خواهید به‌صورت حضوری کد ثنای خود را دریافت کنید، باید به یکی از دفاتر خدمات قضایی مراجعه کرده و بعد از تکمیل مدارک، منتظر تایید اعتبارسنجی بمانید تا کد ثنا به شماره‌ی همراه شما پیامک شود. مدارک لازم برای دریافت کد ثنا به‌صورت حضوری شامل: مدارک شناسایی، یکی از قبوض آب، برق یا گاز، اطلاعات تماس و یک قطعه عکس است.",
         image: "",
       },
       {
-        id: 1,
+        id: 3,
         title: "دریافت کد ثنای الکترونیکی",
         text: "همچنین شما می‌توانید به‌صورت الکترونیکی و با مراجعه به سایت sana.adliran.ir کد ثنای خود را دریافت کنید.(لینک سایت ثنا) در ابتدا اگر برای خودتان می‌خواهید درخواست کد ثنا دهید، باید گزینه‌ی «بر خط شخص را انتخاب کنید»، اما اگر می‌خواهید موسسه یا شرکت خود را درسامانه‌ ثبت کنید باید گزینه‌ی« شخص حقوقی» را انتخاب کنید.(عکس صفحه‌ی اصلی سایت ثنا) بعد از وارد کردن اطلاعات هویتی خود مانند: شماره ملی، تاریخ تولد، سریال شناسنامه و کد امنیتی، می‌توانید وارد حساب کاربری خود شوید. (عکس مرتبط با توضیحات) با انتخاب احراز هویت غیر حضوری، از شما خواسته می‌شود تا یک ویدیوی سلفی از خود با نور و صدای واضح ضبط کنید تا احراز هویت شما تایید شود. در مرحله‌ی آخر با ثبت امضای خود به‌صورت دیجیتال مراحل درخواست شما تکمیل می‌شود. بعد از بررسی و تایید احراز هویت، کد ثنا به شماره‌ی همراه شما پیامک می‌شود .",
         image: "",
@@ -69,31 +77,43 @@ const blogs = [
     paragraph: [],
   },
 ];
-export default function BlogsPreview() {
+
+export default function Blog() {
   return (
-    <div>
-      <div dir="rtl" className="flex flex-row justify-center flex-wrap m-7">
-        {blogs.map((blog) => (
-          <Card
-            key={blog.id}
-            className="bg-blue-100 m-2 rounded-md shadow-xl border-transparent text-right text-lg"
-            hoverable
-            style={{ width: 610, height: "fit-content" }}
-            cover={<img width="100%" height="auto" src={blog.imagePreview} />}
-          >
-            <p>
-              <b className="text-right">{blog.name}</b>
-            </p>
-            <p className=" text-right line-clamp-4">{blog.description}</p>
-          </Card>
+    <div
+      dir="rtl"
+      className="flex flex-col md:grid md:grid-cols-4 m-7 mt-14 pt-14"
+    >
+      <div className="md:col-span-1 mt-9 mb-4">
+        <img src={blogs[0].imagePreview} />
+      </div>
+      <div className=" md:col-span-3 text-justify text-lg m-5">
+        {blogs[0].paragraph.map((para) => (
+          <div key={para.id}>
+            <h1 className="font-bold text-xl m-2">{para.title}</h1>
+            <p className="text-lg m-2">{para.text}</p>
+            <img
+              width={250}
+              className="flex justify-center m-2"
+              src={para.image}
+            />
+          </div>
         ))}
       </div>
-      <Pagination
-        className="m-14"
-        align="center"
-        defaultCurrent={1}
-        total={50}
-      />
+      <div className="mt-14 mb-4 flex flex-row space-x-11 justify-center md:col-start-3">
+        <Button type="link" className="flex ">
+          <div className="mt-14 flex flex-row ">
+            <IoIosArrowForward className="size-7" />
+            <p>قبلی</p>
+          </div>
+        </Button>
+        <Button type="link" className="flex ">
+          <div className="mt-14 flex flex-row ">
+            <p>بعدی</p>
+            <IoIosArrowBack className="size-7" />
+          </div>
+        </Button>
+      </div>
     </div>
   );
 }
