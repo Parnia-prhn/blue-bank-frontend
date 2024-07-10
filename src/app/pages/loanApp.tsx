@@ -13,7 +13,7 @@ export default function LoanApp() {
     setCurrent(value);
   };
   return (
-    <div dir="rtl" className="flex flex-col justify-center bg-white ">
+    <div dir="rtl" className="flex flex-col justify-center bg-emerald-50 ">
       <div className="bg-purple-600 flex flex-col rounded-b-lg">
         <div className="flex flex-row mt-5 text-white">
           <IoIosArrowForward className=" place-self-start size-9 m-5 " />
@@ -30,15 +30,15 @@ export default function LoanApp() {
           وام ولی دست یافتنی
         </h1>
         <div className=" flex  flex-row space-x-0  w-full h-19">
-          <div className="bg-white w-1/2 rounded-tl-full h-18"></div>
+          <div className="bg-emerald-50 w-1/2 rounded-tl-full h-18"></div>
           <p className="text-purple-600">|</p>
-          <div className="bg-white  w-1/2 rounded-tr-full"></div>
+          <div className="bg-emerald-50  w-1/2 rounded-tr-full"></div>
         </div>
       </div>
 
       <div>
         <h1 className="font-bold m-5">چرا وام نقدی بلو؟</h1>
-        <div className="flex flex-row">
+        <div className="flex flex-col md:flex-row">
           <div className="flex flex-col">
             <FaUser className=" size-14 bg-emerald-200 rounded-full m-5 text-emerald-500 place-self-center" />
             <h1 className="text-center font-bold m-2 ">بی ضامن، بی‌ وثیقه</h1>
@@ -76,13 +76,13 @@ export default function LoanApp() {
       </div>
       <TbKeyframeAlignHorizontalFilled className="m-2 text-center text-purple-600 size-8 place-self-center" />
       <h1 className="text-right font-bold text-lg m-3">رفتار مالی در بلو؟</h1>
-      <p className="text-right m-2 mb-3">
+      <p className="text-right m-2 mb-7">
         اولین گام از مسیر اعتباری، دریافت یک وام تا سقف ۱۰ میلیون تومان، براساس
         میانگین حساب ۳ ماهه‌ی شما است. در گام‌های بعدی با سنجش رفتار مالی مبلغ
         وام افزایش می‌یابد. رفتار مالی شما در بلو با این مقادیر سنجیده می‌شود.{" "}
       </p>
-      <div className="flex justify-center border-b-5 border-t-5 border-emerald-300 rounded-lg">
-        <ul className="rtl:list-disc text-right mb-5">
+      <div className="flex justify-center place-self-center  rounded-lg">
+        <ul className="rtl:list-disc text-right mb-5 border-emerald-300 p-8 border-b-8 border-t-8 rounded-3xl">
           <li>میزان گردش مالی</li>
           <li>تعداد و مبلغ تراکنش ها</li>
           <li>استفاده از قابلیت‌ها و خدمات اپلیکیشن</li>
@@ -144,7 +144,7 @@ export default function LoanApp() {
         تومان اقدام نمایید. شرایط و ضوابط دریافت این وام‌ها توسط شرکای تجاری بلو
         تعیین می‌شود و بلو منابع مورد نیاز این وام‌ها را تامین می‌کند.{" "}
       </p>
-      <Button className="p-4 m-3 w-1/3 place-self-center">
+      <Button className="p-4 m-3 w-1/4 place-self-center">
         مشاهده شرکای تجاری
       </Button>
       <TbKeyframeAlignHorizontalFilled className="m-2 text-center text-purple-600 size-8 place-self-center" />
@@ -164,7 +164,7 @@ export default function LoanApp() {
         سازمانی با بلو منعقد شود و پس از آن، کارکنان معرفی شده می‌توانند از طریق
         اپلیکیشن بلو وام خود را دریافت نمایند.{" "}
       </p>
-      <Button className="p-4 m-3 mt-8 w-1/3 place-self-center">
+      <Button className="p-4 m-3 mt-8 w-1/4 place-self-center">
         مشاهده شرایط وام سازمانی
       </Button>
       <div className="bg-white w-full place-self-center text-center mt-5 p-7">
