@@ -72,7 +72,10 @@ const blogs = [
 export default function BlogsPreview() {
   return (
     <div>
-      <div dir="rtl" className="flex flex-row justify-center flex-wrap m-7">
+      <div
+        dir="rtl"
+        className="flex flex-row justify-center flex-wrap m-7 mt-9 pt-12"
+      >
         {blogs.map((blog) => (
           <Card
             key={blog.id}

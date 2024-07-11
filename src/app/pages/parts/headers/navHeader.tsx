@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "antd";
+import Link from "next/link";
 export default function NavHeader() {
   return (
     <div>
@@ -12,16 +13,24 @@ export default function NavHeader() {
             <Button type="link">موقعیت های شغلی</Button>
           </li>
           <li>
-            <Button type="link">سوالات متداول</Button>
+            <Link href="/faq">
+              <Button type="link">سوالات متداول</Button>
+            </Link>
           </li>
           <li>
-            <Button type="link">بلاگ</Button>
+            <Link href="/blogs">
+              <Button type="link">بلاگ</Button>
+            </Link>
           </li>
           <li>
-            <Button type="link">درباره ما</Button>
+            <Link href="/aboutUs">
+              <Button type="link">درباره ما</Button>
+            </Link>
           </li>
           <li>
-            <Button type="link">همکاری تجاری</Button>
+            <Link href="/commerical-coperation">
+              <Button type="link">همکاری تجاری</Button>
+            </Link>
           </li>
           <li>
             <div>

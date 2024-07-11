@@ -4,6 +4,7 @@ import { IoShareSocial } from "react-icons/io5";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 const android = "https://blubank.sb24.ir/images/download/Android_download.svg";
 const bazar =
   "https://blubank.sb24.ir/templates/yootheme/cache/badge-new-10139ac2.webp";
@@ -24,7 +25,7 @@ const logoblue =
 export default function NormalFooter() {
   return (
     <div className="bg-white m-3 p-3 h-1/4">
-      <div className="flex flex-row grid grid-cols-4">
+      <div className="flex flex-col md:flex-row grid grid-cols-4">
         <div className=" flex flex-col m-3 p-3">
           <a href="" className="p-1">
             <img src={sibapp} />
@@ -55,12 +56,12 @@ export default function NormalFooter() {
         </div>
         <div className="text-right text-lg">
           <h2 className="m-3 p-3">بلوبانک سامان</h2>
-          <a href="" className="m-2 p-2">
+          <Link href="/aboutUs" className="m-2 p-2">
             <p>درباره ما</p>
-          </a>
-          <a href="" className="m-2 p-2">
+          </Link>
+          <Link href="/commerical-coperation" className="m-2 p-2">
             <p>موقعیت های شغلی</p>
-          </a>
+          </Link>
           <p className="m-3 p-3">تلفن: ۰۲۱۹۱۰۳۶۰۶۰</p>
         </div>
         <div className="text-right text-lg flex flex-col">
@@ -76,7 +77,7 @@ export default function NormalFooter() {
           </p>
         </div>
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-col md:flex-row">
         <div className="flex flex-row m-3 p-3">
           <a href="" className="">
             <img src={logoblue} />
@@ -85,7 +86,7 @@ export default function NormalFooter() {
             Copyright © 2024 bluBank Saman. All rights reserved
           </p>
         </div>
-        <div className=" flex flex-row m-3 p-3">
+        <div className=" flex flex-col md:flex-row m-3 p-3">
           <Button
             shape="circle"
             className="m-3 p-3 bg-blue-500 text-white"
