@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Layout } from "antd";
 import HeaderPage from "../../../components/headers/header";
 import MainFooter from "../../../components/footers/mainFooter";
+import MainPage from "../../../components/mainPage";
 const { Header, Footer, Content } = Layout;
 export default function HomePage() {
 	return (

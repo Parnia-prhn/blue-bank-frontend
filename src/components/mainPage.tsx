@@ -1,5 +1,5 @@
 import React from "react";
-
-export const mainPage = () => {
-	return <div>mainPage</div>;
-};
+import { Button } from "antd";
+export default function mainPage() {
+	return <p>mainPage</p>;
+}
