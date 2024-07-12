@@ -55,7 +55,7 @@ export default function Header() {
               </Link>
             </li>
             <li className="p-3 border-transparent hover:border-4 hover:border-t-blue-800">
-              <Link href="/commerical-coperation">
+              <Link href="/commercial-coperation">
                 <Button type="link">همکاری تجاری</Button>
               </Link>
             </li>

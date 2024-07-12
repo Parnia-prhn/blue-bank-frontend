@@ -28,7 +28,7 @@ export default function NavHeader() {
             </Link>
           </li>
           <li>
-            <Link href="/commerical-coperation">
+            <Link href="/commercial-coperation">
               <Button type="link">همکاری تجاری</Button>
             </Link>
           </li>

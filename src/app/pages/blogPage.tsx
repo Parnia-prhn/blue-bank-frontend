@@ -11,8 +11,8 @@ export default function BlogPage() {
         <Header
           style={{
             position: "sticky",
-            width: "100%",
-            alignItems: "center",
+            height: "fit-content",
+            padding: "0px",
           }}
         >
           <HeaderPage />
@@ -22,7 +22,8 @@ export default function BlogPage() {
         </Content>
         <Footer
           style={{
-            width: "100%",
+            height: "fit-content",
+            padding: "0px",
           }}
         >
           <NormalFooter />
