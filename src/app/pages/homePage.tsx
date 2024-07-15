@@ -5,21 +5,21 @@ import MainFooter from "./parts/footers/mainFooter";
 
 const { Header, Footer, Content } = Layout;
 export default function HomePage() {
-  return (
-    <div>
-      <Layout>
-        <Header
-          style={{
-            position: "sticky",
-          }}
-        >
-          <HeaderPage />
-        </Header>
-        <Content>main content</Content>
-        <Footer>
-          <MainFooter />
-        </Footer>
-      </Layout>
-    </div>
-  );
+	return (
+		<div>
+			<Layout>
+				<Header
+					style={{
+						position: "sticky",
+					}}
+				>
+					<HeaderPage />
+				</Header>
+				<Content>main content newww</Content>
+				<Footer>
+					<MainFooter />
+				</Footer>
+			</Layout>
+		</div>
+	);
 }
