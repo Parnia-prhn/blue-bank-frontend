@@ -13,8 +13,13 @@
 	src: url("../../public/fonts/iranSans/IRANSans.ttf");
 }
 
+@font-face {
+	font-family: "yekan";
+	src: url("../../public/fonts/yekan/BYekan+.ttf");
+}
+
 * {
-	font-family: iranSans;
+	font-family: yekan;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +31,7 @@
 }
 
 body {
+	background-color: white !important;
 	color: rgb(var(--foreground-rgb));
 	background: linear-gradient(
 			to bottom,
@@ -39,4 +45,18 @@ body {
 	.text-balance {
 		text-wrap: balance;
 	}
+}
+
+/* Example CSS */
+:where(.css-dev-only-do-not-override-p8b6i).ant-carousel .slick-dots li button {
+	margin-top: 6rem;
+	margin-left: 18rem;
+	background-color: #737789;
+}
+
+:where(.css-dev-only-do-not-override-p8b6i).ant-carousel
+	.slick-dots
+	li.slick-active
+	button {
+	background-color: #007aff;
 }
