@@ -125,14 +125,16 @@ export default function FAQ() {
     fetchFaqs();
     return () => {};
   }, []);
-  const [selectedSubject, setSelectedSubject] = useState(faqs[0].subject);
-  const [items, setItems] = useState(
-    faqs[0].items.map((element) => ({
-      key: element._id,
-      label: element.question,
-      children: <p className="text-wrap text-right ">{element.answer}</p>,
-    }))
-  );
+  const [selectedSubject, setSelectedSubject] =
+    useState();
+    // faqs[0].subject
+  const [items, setItems] =
+    useState();
+    // faqs[0].items.map((element) => ({
+    //   key: element._id,
+    //   label: element.question,
+    //   children: <p className="text-wrap text-right ">{element.answer}</p>,
+    // }))
 
   const optionsValue = faqs.map((item) => item.subject);
 
