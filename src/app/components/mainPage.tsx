@@ -6,6 +6,7 @@ import { DownloadOutlined } from "@ant-design/icons";
 
 export default function MainPage() {
 	const [isMobile, setIsMobile] = useState(false);
+	const [cardColor, setCardColor] = useState<string>("blue");
 
 	const handleResize = () => {
 		setIsMobile(window.innerWidth <= 768);
@@ -20,7 +21,10 @@ export default function MainPage() {
 	return (
 		<div className="grid grid-cols-1">
 			{/* Main Banner */}
-			<div className="md:px-56 md:mt-24">
+			<div
+				className="md:px-56 md:mt-24"
+				style={{ position: "relative", display: "block" }}
+			>
 				<a href="#">
 					<img
 						src={
@@ -35,7 +39,10 @@ export default function MainPage() {
 			</div>
 
 			{/* Slider */}
-			<div className="grid grid-cols-1 md:grid-cols-2 px-56 pt-24">
+			<div
+				className="grid grid-cols-1 md:grid-cols-2 px-56 pt-24"
+				style={{ position: "relative" }}
+			>
 				<video
 					src="/media/videos/blue-cards.mp4"
 					autoPlay
@@ -171,6 +178,163 @@ export default function MainPage() {
 						</div>
 					</Carousel>
 				</div>
+			</div>
+
+			{/* Different cards */}
+			<div
+				className="mt-32"
+				style={{
+					position: "relative",
+					display: "block",
+					height: "350px",
+				}}
+			>
+				<div
+					style={{
+						marginTop: "16rem",
+						position: "absolute",
+						width: "750px",
+						backgroundColor: "#fafafa",
+						borderRadius: "100%",
+						height: "750px",
+						left: "-160px",
+						top: "-300px",
+					}}
+				></div>
+				<div className="grid grid-cols-2">
+					<div
+						style={{ marginRight: "25rem", marginTop: "3rem", width: "500px" }}
+					>
+						<p className="font-bold text-4xl text-blue-400">
+							بلو، فقط آبی نیست ...
+						</p>
+						<div className="flex gap-3 mt-5">
+							<div
+								style={{
+									marginTop: "15px",
+									width: "15px",
+									height: "3px",
+									backgroundColor: "#4b94ea",
+								}}
+							></div>
+							<p
+								style={{ fontSize: "16px" }}
+								className="tracking-wider text-gray-500"
+							>
+								عضو سامانه شتاب بانک مرکزی
+							</p>
+						</div>
+						<div className="flex gap-3 mt-3">
+							<div
+								style={{
+									marginTop: "15px",
+									width: "20px",
+									height: "3px",
+									backgroundColor: "#4b94ea",
+								}}
+							></div>
+							<p
+								style={{ fontSize: "16px" }}
+								className="tracking-wider text-gray-500"
+							>
+								ارسال رایگان کارت بانکی به آدرس دلخواه شما در کمتر از ۵ روز کاری
+								در تهران و ۱۰ روز کاری در سایر نقاط کشور
+							</p>
+						</div>
+						<div className="flex gap-3 mt-3">
+							<div
+								style={{
+									marginTop: "15px",
+									width: "15px",
+									height: "3px",
+									backgroundColor: "#4b94ea",
+								}}
+							></div>
+							<p
+								style={{ fontSize: "16px" }}
+								className="tracking-wider text-gray-500"
+							>
+								دریافت و فعال‌سازی آنلاین رمزهای کارت از طریق اپلیکیشن بلو
+							</p>
+						</div>
+						<div className="flex gap-3 mt-3">
+							<div
+								style={{
+									marginTop: "15px",
+									width: "15px",
+									height: "3px",
+									backgroundColor: "#4b94ea",
+								}}
+							></div>
+							<p
+								style={{ fontSize: "16px" }}
+								className="tracking-wider text-gray-500"
+							>
+								امکان مسدودکردن کارت از طریق اپلیکیشن بلو
+							</p>
+						</div>
+
+						<div className="flex justify-end mt-6 gap-3">
+							<div
+								style={{
+									width: "12px",
+									height: "12px",
+									backgroundColor: "#3094ea",
+									borderRadius: "100%",
+									cursor: "pointer",
+								}}
+								onClick={() => {
+									setCardColor("blue");
+								}}
+							></div>
+							<div
+								style={{
+									width: "12px",
+									height: "12px",
+									backgroundColor: "#0fa581",
+									borderRadius: "100%",
+									cursor: "pointer",
+								}}
+								onClick={() => {
+									setCardColor("green");
+								}}
+							></div>
+							<div
+								style={{
+									width: "12px",
+									height: "12px",
+									backgroundColor: "red",
+									borderRadius: "100%",
+									cursor: "pointer",
+								}}
+								onClick={() => {
+									setCardColor("red");
+								}}
+							></div>
+						</div>
+					</div>
+					<div
+						style={{
+							position: "absolute",
+							width: "600px",
+							left: "150px",
+							marginTop: "32rem",
+						}}
+					>
+						<img
+							className="card-move"
+							src={`/media/images/${cardColor}-card.png`}
+							alt="cardColor"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<div
+				className="md:px-56 md:mt-24"
+				style={{ position: "relative", display: "block" }}
+			>
+				<div>gajsf;lkasdfnasdf</div>
 			</div>
 		</div>
 	);
