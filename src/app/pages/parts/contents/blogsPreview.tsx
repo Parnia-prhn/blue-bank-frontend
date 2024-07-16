@@ -109,6 +109,7 @@ export default function BlogsPreview() {
               </p>
               <p className=" text-right line-clamp-4">
                 {blog.text[0].paragraph}
+                blogs
               </p>
             </Link>
           </Card>
