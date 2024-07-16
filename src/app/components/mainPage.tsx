@@ -330,11 +330,84 @@ export default function MainPage() {
 				</div>
 			</div>
 
+			{/* Blu line */}
 			<div
 				className="md:px-56 md:mt-24"
-				style={{ position: "relative", display: "block" }}
+				style={{
+					position: "relative",
+					display: "block",
+					height: "600px",
+					backgroundColor: "#3997e9",
+				}}
 			>
-				<div>gajsf;lkasdfnasdf</div>
+				<div className="grid grid-cols-2 mt-20 gap-5">
+					<img src="/media/images/blu-line.png" alt="blu-line" />
+					<div>
+						<h2 className="font-bold text-white text-4xl mt-36">
+							بلولاین؛ همیشه به وقت همه‌جا
+						</h2>
+						<p className="text-white mt-10 tracking-wider">
+							اگر سوالی دارید، در چت اپلیکیشن بلو پیام صوتی و یا متنی بگذارید،
+							یا با شماره ۹۱۰۳۶۰۶۰-۰۲۱ تماس بگیرید. کارشناسان بلولاین همیشه
+							آماده‌ی پاسخ‌گویی و حل مشکلات احتمالی شما هستند.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			{/* Identify */}
+			<div
+				className="md:px-56 grid grid-cols-2 gap-5"
+				style={{
+					position: "relative",
+					backgroundColor: "#fbfafb",
+				}}
+			>
+				<div style={{ width: "500px" }} className="mr-10 mt-16">
+					<h2 className="font-bold text-blue-400 text-4xl mt-36">
+						شناسایی هویت
+					</h2>
+					<p className=" mt-10 tracking-wider text-lg text-gray-500">
+						“اینجانب مهرداد اندامی با کد ملی ۱۲۳۴۵۶۷۸۹۰ درخواست بازکردن حساب در
+						بلو را دارم.” یک ویدیو ۴۵ ثانیه‌ای با عبارت خواسته مشابه نمونه بالا
+						ضبط و ارسال کنید.
+					</p>
+				</div>
+				<div>
+					<video
+						src="/media/videos/identify.mp4"
+						autoPlay
+						className="mt-20"
+					></video>
+				</div>
+			</div>
+
+			{/* transfer money */}
+			<div
+				className="md:px-56 grid grid-cols-2 gap-5"
+				style={{
+					position: "relative",
+				}}
+			>
+				<div>
+					<video
+						src="/media/videos/smart-transfer.mp4"
+						autoPlay
+						className="mt-20 mr-10"
+						style={{ width: "60%" }}
+					></video>
+				</div>
+				<div style={{ width: "500px" }} className="mr-10 mt-16">
+					<h2 className="font-bold text-blue-400 text-4xl mt-36">
+						انتقال هوشمند پول
+					</h2>
+					<p className=" mt-10 tracking-wider text-lg text-gray-500">
+						«انتقال هوشمند پول» یعنی راحت و بدون دردسر پولی را که می‌خواهید،
+						جابه جا کنید. در بلو، لازم نیست شما بدانید پایا، ساتنا یا شبا چیست و
+						برای انتقال چه میزان پول از کدامیک از آنها باید استفاده کرد. ما این
+						کار را برای شما انجام می‌دهیم.
+					</p>
+				</div>
 			</div>
 		</div>
 	);
