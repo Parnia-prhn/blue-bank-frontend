@@ -18,7 +18,7 @@ export default function BlogPage(id: any) {
           <HeaderPage />
         </Header>
         <Content>
-          <Blog id={id} />
+          <Blog />
         </Content>
         <Footer
           style={{
