@@ -85,31 +85,31 @@ export default function BlogsPreview() {
     fetchBlogs();
     return () => {};
   }, []);
+
   return (
     <div>
       <div
         dir="rtl"
         className="flex flex-row justify-center flex-wrap m-7 mt-9 pt-12"
       >
-        {blogs.map((blog) => (
+        {blogs.map((blog: any) => (
           <Card
             key={blog._id}
             className="bg-blue-100 m-2 rounded-md shadow-xl border-transparent text-right text-lg"
             hoverable
             style={{ width: 610, height: "fit-content" }}
             cover={
-              <Link href={`/blog/${blog._id}`}>
+              <Link href={`/blogs/${blog._id}`}>
                 <img width="100%" height="auto" src={blog.coverPictureUrl} />
               </Link>
             }
           >
-            <Link href={`/blog/${blog._id}`}>
+            <Link href={`/blogs/${blog._id}`}>
               <p>
                 <b className="text-right">{blog.title}</b>
               </p>
               <p className=" text-right line-clamp-4">
                 {blog.text[0].paragraph}
-                blogs
               </p>
             </Link>
           </Card>

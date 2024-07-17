@@ -4,7 +4,12 @@ import { FaUser } from "react-icons/fa";
 import { IoSpeedometer } from "react-icons/io5";
 import { GiSwapBag } from "react-icons/gi";
 import { TbKeyframeAlignHorizontalFilled } from "react-icons/tb";
-import { Button, Divider, Steps } from "antd";
+import { Button, Divider, Steps, Timeline } from "antd";
+import { PiNumberCircleOne } from "react-icons/pi";
+import { PiNumberCircleTwo } from "react-icons/pi";
+import { PiNumberCircleThree } from "react-icons/pi";
+import { PiNumberCircleFour } from "react-icons/pi";
+import { PiNumberCircleFive } from "react-icons/pi";
 export default function LoanApp() {
   const [current, setCurrent] = useState(0);
 
@@ -95,39 +100,99 @@ export default function LoanApp() {
       <h1 className="text-right font-bold text-xl m-2">
         مراحل دریافت وام در بلو؟
       </h1>
-      <Steps
-        current={current}
-        onChange={onChange}
-        direction="vertical"
-        className="flex justify-start place-slef-right text-right m-5 "
+      <Timeline
+        className=" m-8 "
+        mode="left"
         items={[
           {
-            title: "فعال شدن وام",
-            description:
-              "وام اول شما براساس میانگین موجودی، تا ۱۰ میلیون تومان و وام های بعدی براساس رفتار مالی شما تا ۴۰ میلیون تومان به‌صورت خودکار و در فواصل زمانی ماهانه تعیین می‌شود",
+            // dot: (
+            //   <PiNumberCircleOne
+            //     style={{ fontSize: "16px" }}
+            //     className="text-emerald-500 "
+            //   />
+            // ),
+            children: (
+              <>
+                <p className="text-lg font-semiblod m-4">فعال شدن وام</p>
+                <p>
+                  وام اول شما براساس میانگین موجودی، تا ۱۰ میلیون تومان و وام
+                  های بعدی براساس رفتار مالی شما تا ۴۰ میلیون تومان به‌صورت
+                  خودکار و در فواصل زمانی ماهانه تعیین می‌شود
+                </p>
+              </>
+            ),
           },
           {
-            title: "درخواست وام",
-            description:
-              "بعد از فعال شدن وام شما می‌توانید تا سقف اعتبار فعال شده، مبلغ و تعداد اقساط وام را انتخاب کنید.",
+            // dot: (
+            //   <PiNumberCircleTwo
+            //     style={{ fontSize: "22px" }}
+            //     className="text-emerald-500 "
+            //   />
+            // ),
+            children: (
+              <>
+                <p className="text-lg font-semiblod">درخواست وام</p>
+                <p>
+                  بعد از فعال شدن وام شما می‌توانید تا سقف اعتبار فعال شده، مبلغ
+                  و تعداد اقساط وام را انتخاب کنید.
+                </p>
+              </>
+            ),
           },
           {
-            title: "استعلام سوابق بانکی",
-            description:
-              "براساس قوانین بانک مرکزی قبل از دریافت وام استعلام وضعیت چک برگشتی، اقساط معوق و امتیاز اعتباری شما توسط بلو انجام می‌شود.",
+            // dot: (
+            //   <PiNumberCircleThree
+            //     style={{ fontSize: "22px" }}
+            //     className="text-emerald-500 "
+            //   />
+            // ),
+            children: (
+              <>
+                <p className="text-lg font-semiblod">استعلام سوابق بانکی</p>
+                <p>
+                  براساس قوانین بانک مرکزی قبل از دریافت وام استعلام وضعیت چک
+                  برگشتی، اقساط معوق و امتیاز اعتباری شما توسط بلو انجام می‌شود.
+                </p>
+              </>
+            ),
           },
           {
-            title: "تایید قرارداد",
-            description:
-              "درصورت تایید استعلام از سوی بانک مرکزی، باید با مراجعه به اپلیکیشن بلو شرایط و ضوابط دریافت وام را تایید نمایید.",
+            // dot: (
+            //   <PiNumberCircleFour
+            //     style={{ fontSize: "22px" }}
+            //     className="text-emerald-500 "
+            //   />
+            // ),
+            children: (
+              <>
+                <p className="text-lg font-semiblod">تایید قرارداد</p>
+                <p>
+                  درصورت تایید استعلام از سوی بانک مرکزی، باید با مراجعه به
+                  اپلیکیشن بلو شرایط و ضوابط دریافت وام را تایید نمایید.
+                </p>
+              </>
+            ),
           },
           {
-            title: "واریز وام",
-            description:
-              "بعد از تایید قرارداد توسط شما، مبلغ وام ظرف چند دقیقه به حساب شما واریز می‌شود.",
+            // dot: (
+            //   <PiNumberCircleFive
+            //     style={{ fontSize: "22px" }}
+            //     className="text-emerald-500 "
+            //   />
+            // ),
+            children: (
+              <>
+                <p className="text-lg font-semiblod">واریز وام</p>
+                <p>
+                  بعد از تایید قرارداد توسط شما، مبلغ وام ظرف چند دقیقه به حساب
+                  شما واریز می‌شود.
+                </p>
+              </>
+            ),
           },
         ]}
       />
+
       <TbKeyframeAlignHorizontalFilled className="m-2 text-center text-purple-600 size-8 place-self-center" />
       <div className="bg-purple-600 flex flex-col w-full h-45 text-white">
         <h1 className="text-center font-bold m-3 mt-6">وام شرکای تجاری بلو </h1>

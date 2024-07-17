@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "antd";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
-import { useRouter } from "next/router";
+
 import axios from "axios";
 // const blogs = [
 //   {
@@ -79,17 +79,17 @@ import axios from "axios";
 //     paragraph: [],
 //   },
 // ];
+// interface BlogProps {
+//   id: any;
+// }
+export default function Blog(id: any) {
+  const [blog, setBlog] = useState<any>();
 
-export default function Blog() {
-  const router = useRouter();
-  const { blogId } = router.query;
-  const [blog, setBlog] = useState([]);
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3300/blogs/${blogId}`
-        );
+        console.log(id);
+        const response = await axios.get(`http://localhost:3300/blogs/${id}`);
         setBlog(response.data);
       } catch (error) {
         console.error("Error fetching Blog:", error);
@@ -98,6 +98,7 @@ export default function Blog() {
     fetchBlog();
     return () => {};
   }, []);
+
   return (
     <div
       dir="rtl"
@@ -107,7 +108,7 @@ export default function Blog() {
         <img src={blog.coverPictureUrl} />
       </div>
       <div className=" md:col-span-3 text-justify text-lg m-5">
-        {blog.text.map((para) => (
+        {blog.text.map((para: any) => (
           <div key={para._id}>
             <h1 className="font-bold text-xl m-2">{para.title}</h1>
             <p className="text-lg m-2">{para.paragraph}</p>
