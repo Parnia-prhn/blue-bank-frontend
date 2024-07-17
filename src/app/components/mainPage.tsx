@@ -5,10 +5,20 @@ import { Card } from "antd";
 import { DownloadOutlined, QuestionCircleOutlined } from "@ant-design/icons";
 import type { CollapseProps } from "antd";
 import { Collapse } from "antd";
+import axios from "axios";
+import Image from "next/image";
+
+interface IComment {
+	profilePic: string;
+	socialMedia: string;
+	id: string;
+	comment: string;
+}
 
 export default function MainPage() {
 	const [isMobile, setIsMobile] = useState(false);
 	const [cardColor, setCardColor] = useState<string>("blue");
+	const [comments, setComments] = useState<IComment[]>([]);
 
 	const genExtra = () => (
 		<QuestionCircleOutlined
@@ -82,7 +92,7 @@ export default function MainPage() {
 			children: (
 				<p className="text-gray-500" style={{ fontSize: "16px" }}>
 					{" "}
-					در وب‌سایت سازمان ثبت و احوال کد رهگیری کارت ملی خود را پیداکنید و
+					در وب‌سایت سازمان ثبت و احوال کد رهگیری کارت ملی خو�� را پیداکنید و
 					فرآیند بازکردن حساب را انجام دهید.
 				</p>
 			),
@@ -97,7 +107,6 @@ export default function MainPage() {
 			),
 			children: (
 				<p className="text-gray-500" style={{ fontSize: "16px" }}>
-					{" "}
 					باز کردن حساب در کمتر از ۷ دقیقه، بررسی مدارک، شناسایی هویت و فعال شدن
 					حساب(در صورت تایید استعلام بانک مرکزی) حداکثر تا ۳ روز انجام می‌شود.{" "}
 				</p>
@@ -105,6 +114,17 @@ export default function MainPage() {
 			extra: genExtra(),
 		},
 	];
+
+	useEffect(() => {
+		axios
+			.get("http://[::1]:3300/comments/getAll")
+			.then((res: any) => {
+				setComments(res.data.data);
+			})
+			.catch((error: any) => {
+				console.log("in catch");
+			});
+	}, [comments]);
 
 	const handleResize = () => {
 		setIsMobile(window.innerWidth <= 768);
@@ -156,7 +176,7 @@ export default function MainPage() {
 								style={{ fontSize: "16px" }}
 								className="tracking-wider text-gray-500 mt-10"
 							>
-								بلو، پلتفرمی تمام دیجیتال است که همه‌ی عملیات بانکداری روی
+								بلو، پلتفرمی تمام دیجیتال است که همه‌ی ��ملیات بانکداری روی
 								اپلیکیشن موبایل و کاملا آنلاین انجام می‌شود. به زبان ساده، بانکی
 								است که همیشه همراه شما خواهد بود.
 							</p>
@@ -186,7 +206,7 @@ export default function MainPage() {
 										className="rounded-3xl bg-blue-100 mt-3 text-center opacity-75"
 										style={{ height: "180px" }}
 									>
-										<h2 className="font-bold">۵ درصد سود سپرده</h2>
+										<h2 className="font-bold">۵ درصد سو�� سپرده</h2>
 										<p className="text-blue-500 mt-3">
 											در بلو برای حداقل مانده موجودی در ماه، سود سالیانه ۵ درصد
 											به صورت ماه‌شمار پرداخت می‌شود.
@@ -251,7 +271,7 @@ export default function MainPage() {
 									className="tracking-wider text-gray-500"
 								>
 									مبالغ سپرده‌های مشتریان در چارچوب ضوابط قانونی و تا سقف قانونی
-									تعیین شده، مورد تضمین صندوق ضمانت سپرده‌های بانک مرکزی است.
+									تعیین شده، مورد تض��ین صندوق ضمانت سپرده‌های بانک مرکزی است.
 								</p>
 							</div>
 							<div className="flex gap-3 mt-5">
@@ -471,7 +491,7 @@ export default function MainPage() {
 						ضبط و ارسال کنید.
 					</p>
 				</div>
-				<div>
+				<div className="mb-10">
 					<video
 						src="/media/videos/identify.mp4"
 						autoPlay
@@ -487,7 +507,7 @@ export default function MainPage() {
 					position: "relative",
 				}}
 			>
-				<div>
+				<div className="mb-10">
 					<video
 						src="/media/videos/smart-transfer.mp4"
 						autoPlay
@@ -544,6 +564,91 @@ export default function MainPage() {
 							بلولاین
 						</Button>
 					</div>
+				</div>
+			</div>
+
+			{/* COMMENTS */}
+			<div
+				className="grid grid-cols-1"
+				style={{
+					position: "relative",
+				}}
+			>
+				<h2 className="font-bold text-blue-400 text-4xl mt-20 text-center">
+					ما را در شبکه‌های اجتماعی دنبال کنید:
+				</h2>
+				<div
+					className="flex my-20 cards-container"
+					style={{
+						overflow: "scroll",
+					}}
+				>
+					{comments.length > 0 &&
+						comments.map((comment: IComment, index: number) => {
+							let borderColor;
+							if (comment.socialMedia === "instagram") borderColor = "#e7406d";
+							else borderColor = "#3094ea";
+
+							return (
+								<div
+									key={index}
+									style={{
+										boxShadow: "0 0 12px 0 #ddd",
+										width: "390px",
+										height: "250px",
+										padding: "50px 20px 30px",
+										borderRadius: "15px",
+										marginRight: "40px",
+										flexShrink: "0",
+										margin: "2rem",
+										position: "relative",
+									}}
+								>
+									<div style={{ marginTop: "-25px", marginRight: "10px" }}>
+										<Image
+											src={`/media/images/${comment.socialMedia}.png`}
+											alt={comment.socialMedia}
+											width={30}
+											height={30}
+										/>
+									</div>
+									<div
+										style={{
+											backgroundColor: "#fff",
+											position: "absolute",
+											right: "39%",
+											top: "-30px",
+										}}
+									>
+										<Image
+											src={`/media/images/profiles/${comment.profilePic}.png`}
+											alt={`Profile picture of ${comment.id}`}
+											width={75}
+											height={75}
+											style={{
+												borderRadius: "100%",
+												border: `4px solid ${borderColor}`,
+											}}
+										/>
+									</div>
+									<p
+										className="mt-3 flex justify-center font-bold"
+										style={{ fontSize: "18px" }}
+									>
+										{comment.id}
+									</p>
+									<p
+										style={{
+											color: "#34479c",
+											fontSize: "16px",
+											margin: "1rem",
+										}}
+									>
+										{comment.comment}
+									</p>
+								</div>
+							);
+						})}
 				</div>
 			</div>
 		</div>
