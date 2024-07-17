@@ -77,3 +77,22 @@ body {
 		bottom: 30px;
 	}
 }
+
+:where(.css-dev-only-do-not-override-p8b6i).ant-collapse > .ant-collapse-item {
+	background-color: #fbfafb;
+	padding: 10px;
+}
+
+:where(.css-dev-only-do-not-override-p8b6i).ant-collapse
+	.ant-collapse-content
+	> .ant-collapse-content-box {
+	background-color: #fbfafb;
+	padding: 1rem;
+}
+
+:where(.css-dev-only-do-not-override-p8b6i).ant-collapse
+	> .ant-collapse-item
+	> .ant-collapse-header
+	.ant-collapse-expand-icon {
+	visibility: hidden;
+}

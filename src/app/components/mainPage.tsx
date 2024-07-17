@@ -2,11 +2,109 @@ import React, { useEffect, useState } from "react";
 import { Carousel } from "antd";
 import { Button } from "antd";
 import { Card } from "antd";
-import { DownloadOutlined } from "@ant-design/icons";
+import { DownloadOutlined, QuestionCircleOutlined } from "@ant-design/icons";
+import type { CollapseProps } from "antd";
+import { Collapse } from "antd";
 
 export default function MainPage() {
 	const [isMobile, setIsMobile] = useState(false);
 	const [cardColor, setCardColor] = useState<string>("blue");
+
+	const genExtra = () => (
+		<QuestionCircleOutlined
+			style={{ fontSize: "30px", color: "#3094ea" }}
+			onClick={event => {
+				event.stopPropagation();
+			}}
+		/>
+	);
+
+	const items: CollapseProps["items"] = [
+		{
+			key: "1",
+			label: (
+				<h2 className="text-blue-400 font-bold text-xl">
+					چگونه می‌توانم حساب بازکنم؟
+				</h2>
+			),
+			children: (
+				<p className="text-gray-500" style={{ fontSize: "16px" }}>
+					مراحل بازکردن حساب : ١.دانلود و نصب اپلیکیشن بلو ٢.داشتن یک خط تلفن
+					همراه فعال که به نام خودتان است ٣.همراه داشتن اصل کارت ملی (برای کارت
+					ملی‌های قدیمی، کد رهگیری درخواست صدور کارت هوشمند) برای ارسال تصاویر
+					مربوطه
+				</p>
+			),
+			extra: genExtra(),
+		},
+		{
+			key: "2",
+			label: (
+				<h2 className="text-blue-400 font-bold text-xl">
+					برای بازکردن حساب چه مدارکی لازم است؟
+				</h2>
+			),
+			children: (
+				<p className="text-gray-500" style={{ fontSize: "16px" }}>
+					{" "}
+					اصل کارت ملی (برای کارت ملی‌های قدیمی، کد رهگیری درخواست صدور کارت
+					هوشمند) برای ارسال تصاویر مربوطه و داشتن یک خط تلفن همراه فعال که به
+					نام خودتان است.
+				</p>
+			),
+			extra: genExtra(),
+		},
+		{
+			key: "3",
+			label: (
+				<h2 className="text-blue-400 font-bold text-xl">
+					من کارت ملی هوشمند دریافت نکرده‌ام، آیا می‌توانم حساب بازکنم؟
+				</h2>
+			),
+			children: (
+				<p className="text-gray-500" style={{ fontSize: "16px" }}>
+					{" "}
+					بله، اگر درخواست کارت ملی هوشمند را ثبت کردید، از راه ثبت کد رهگیری
+					نوشته شده روی رسید ثبت‌نام کارت ملی هوشمند، امکان بازکردن حساب را
+					دارید.
+				</p>
+			),
+			extra: genExtra(),
+		},
+		{
+			key: "4",
+			label: (
+				<h2 className="text-blue-400 font-bold text-xl">
+					من کارت ملی هوشمند ندارم و برگه رسید کارت ملی هوشمند را گم کرده‌ام،
+					چطور می‌توانم حساب بازکنم؟
+				</h2>
+			),
+			children: (
+				<p className="text-gray-500" style={{ fontSize: "16px" }}>
+					{" "}
+					در وب‌سایت سازمان ثبت و احوال کد رهگیری کارت ملی خود را پیداکنید و
+					فرآیند بازکردن حساب را انجام دهید.
+				</p>
+			),
+			extra: genExtra(),
+		},
+		{
+			key: "5",
+			label: (
+				<h2 className="text-blue-400 font-bold text-xl">
+					مراحل بازکردن حساب چقدر زمان می‌برد؟
+				</h2>
+			),
+			children: (
+				<p className="text-gray-500" style={{ fontSize: "16px" }}>
+					{" "}
+					باز کردن حساب در کمتر از ۷ دقیقه، بررسی مدارک، شناسایی هویت و فعال شدن
+					حساب(در صورت تایید استعلام بانک مرکزی) حداکثر تا ۳ روز انجام می‌شود.{" "}
+				</p>
+			),
+			extra: genExtra(),
+		},
+	];
 
 	const handleResize = () => {
 		setIsMobile(window.innerWidth <= 768);
@@ -407,6 +505,45 @@ export default function MainPage() {
 						برای انتقال چه میزان پول از کدامیک از آنها باید استفاده کرد. ما این
 						کار را برای شما انجام می‌دهیم.
 					</p>
+				</div>
+			</div>
+
+			{/* FAQ */}
+			<div
+				className="md:px-56 grid grid-cols-1"
+				style={{
+					position: "relative",
+					backgroundColor: "#fbfafb",
+				}}
+			>
+				<h2 className="font-bold text-blue-400 text-4xl mt-20 text-center">
+					سوالات متداول
+				</h2>
+				<div className="flex justify-center">
+					<Collapse
+						items={items}
+						className="my-10 w-4/5"
+						style={{ border: "none" }}
+					/>
+				</div>
+				<div className="flex justify-end">
+					<a className="text-blue-500 ml-20 text-lg" href="#">
+						سوالات بیشتر ...
+					</a>
+				</div>
+				<div className="mb-16">
+					<h2 className="font-bold text-gray-400 text-2xl mt-10 text-center">
+						خط ارتباطی برای پاسخ به سوالات شما
+					</h2>
+					<div className="flex justify-center">
+						<Button
+							type="primary"
+							className="mt-5"
+							style={{ borderRadius: "30px" }}
+						>
+							بلولاین
+						</Button>
+					</div>
 				</div>
 			</div>
 		</div>
