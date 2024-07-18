@@ -73,19 +73,35 @@ import Link from "next/link";
 // ];
 export default function BlogsPreview() {
   const [blogs, setBlogs] = useState([]);
+  // const [meta, setMeta] = useState<any>([]);
+  const [meta, setMeta] = useState<{ currentPage: number; totalPages: number }>(
+    {
+      currentPage: 1,
+      totalPages: 0,
+    }
+  );
+  const fetchBlogs = async (page: number = 1, pageSize: number = 6) => {
+    try {
+      const response = await axios.get(`http://localhost:3300/blogs/getAll`, {
+        params: { page, pageSize },
+      });
+      setBlogs(response.data.data);
+      setMeta({
+        currentPage: response.data.meta.currentPage,
+        totalPages: response.data.meta.totalPages,
+      });
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3300/blogs/getAll`);
-        setBlogs(response.data);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      }
-    };
     fetchBlogs();
-    return () => {};
   }, []);
 
+  const handlePageChange = (page: number) => {
+    fetchBlogs(page);
+  };
   return (
     <div>
       <div
@@ -115,11 +131,14 @@ export default function BlogsPreview() {
           </Card>
         ))}
       </div>
+
       <Pagination
         className="m-14"
         align="center"
-        defaultCurrent={1}
-        total={50}
+        current={meta.currentPage}
+        total={meta.totalPages * 6}
+        pageSize={6}
+        onChange={handlePageChange}
       />
     </div>
   );

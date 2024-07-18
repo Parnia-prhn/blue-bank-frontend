@@ -7,7 +7,9 @@ const { Header, Footer, Content } = Layout;
 interface BlogPageProps {
   id: string;
 }
+
 export default function BlogPage({ id }: BlogPageProps) {
+  console.log("id2", id);
   return (
     <div>
       <Layout>
