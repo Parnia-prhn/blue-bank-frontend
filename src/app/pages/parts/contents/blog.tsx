@@ -6,35 +6,36 @@ import { IoIosArrowBack } from "react-icons/io";
 import axios from "axios";
 import { usePathname } from "next/navigation";
 
-// interface BlogProps {
-//   id: any;
-// }
-export default function Blog() {
-  const [blog, setBlog] = useState<any>();
+interface BlogProps {
+  id: string;
+}
+export default function Blog({ id }: BlogProps) {
+  const [blog, setBlog] = useState<any>(null);
   const pathname = usePathname();
   const blogId = pathname.split("/").pop();
 
   useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const response = await axios.get(`http://[::1]:3300/blogs/${blogId}`);
-        console.log("blog", response.data);
-        setBlog(response.data);
-      } catch (error) {
-        console.error("Error fetching Blog:", error);
-      }
-    };
-    fetchBlog();
-    return () => {};
-    // axios
-    //   .get(`http://localhost:3300/blogs/${blogId}`)
-    //   .then((res: any) => {
-    //     setBlog(res.data.data);
-    //   })
-    //   .catch((err: any) => {
-    //     console.log("in catch");
-    //   });
-  }, []);
+    // const fetchBlog = async () => {
+    //   try {
+    //     const response = await axios.get(`http://[::1]:3300/blogs/${blogId}`);
+    //     console.log("blog", response.data);
+    //     setBlog(response.data);
+    //   } catch (error) {
+    //     console.error("Error fetching Blog:", error);
+    //   }
+    // };
+    // fetchBlog();
+    // return () => {};
+    if (id)
+      axios
+        .get(`http://localhost:3300/blogs/${blogId}`)
+        .then((res: any) => {
+          setBlog(res.data.data);
+        })
+        .catch((error: any) => {
+          console.error("Error fetching Blog:", error);
+        });
+  }, [id]);
 
   return (
     <div
