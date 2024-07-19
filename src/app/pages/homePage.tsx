@@ -14,7 +14,7 @@ export default function HomePage() {
 					padding: "0px",
 				}}
 			>
-				<HeaderPage />
+				<HeaderPage bg={"white"} />
 			</Header>
 			<Content>
 				<MainPage />
