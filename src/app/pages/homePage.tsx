@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Layout } from "antd";
-import MainPage from "../components/mainPage";
+import MainPage from "./parts/mainPage/mainPage";
 import MainFooter from "./parts/footers/mainFooter";
 import HeaderPage from "./parts/headers/header";
 const { Header, Footer, Content } = Layout;

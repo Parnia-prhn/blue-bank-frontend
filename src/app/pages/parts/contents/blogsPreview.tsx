@@ -73,37 +73,54 @@ import Link from "next/link";
 // ];
 export default function BlogsPreview() {
   const [blogs, setBlogs] = useState([]);
+  // const [meta, setMeta] = useState<any>([]);
+  const [meta, setMeta] = useState<{ currentPage: number; totalPages: number }>(
+    {
+      currentPage: 1,
+      totalPages: 0,
+    }
+  );
+  const fetchBlogs = async (page: number = 1, pageSize: number = 6) => {
+    try {
+      const response = await axios.get(`http://localhost:3300/blogs/getAll`, {
+        params: { page, pageSize },
+      });
+      setBlogs(response.data.data);
+      setMeta({
+        currentPage: response.data.meta.currentPage,
+        totalPages: response.data.meta.totalPages,
+      });
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3300/blogs/getAll`);
-        setBlogs(response.data);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      }
-    };
     fetchBlogs();
-    return () => {};
   }, []);
+
+  const handlePageChange = (page: number) => {
+    fetchBlogs(page);
+  };
   return (
     <div>
       <div
         dir="rtl"
         className="flex flex-row justify-center flex-wrap m-7 mt-9 pt-12"
       >
-        {blogs.map((blog) => (
+        {blogs.map((blog: any) => (
           <Card
             key={blog._id}
             className="bg-blue-100 m-2 rounded-md shadow-xl border-transparent text-right text-lg"
             hoverable
             style={{ width: 610, height: "fit-content" }}
             cover={
-              <Link href={`/blog/${blog._id}`}>
+              <Link href={`/blogs/${blog._id}`}>
                 <img width="100%" height="auto" src={blog.coverPictureUrl} />
               </Link>
             }
           >
-            <Link href={`/blog/${blog._id}`}>
+            <Link href={`/blogs/${blog._id}`}>
               <p>
                 <b className="text-right">{blog.title}</b>
               </p>
@@ -114,11 +131,14 @@ export default function BlogsPreview() {
           </Card>
         ))}
       </div>
+
       <Pagination
         className="m-14"
         align="center"
-        defaultCurrent={1}
-        total={50}
+        current={meta.currentPage}
+        total={meta.totalPages * 6}
+        pageSize={6}
+        onChange={handlePageChange}
       />
     </div>
   );

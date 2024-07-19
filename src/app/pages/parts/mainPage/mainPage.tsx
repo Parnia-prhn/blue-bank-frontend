@@ -92,7 +92,7 @@ export default function MainPage() {
 			children: (
 				<p className="text-gray-500" style={{ fontSize: "16px" }}>
 					{" "}
-					در وب‌سایت سازمان ثبت و احوال کد رهگیری کارت ملی خو�� را پیداکنید و
+					در وب‌سایت سازمان ثبت و احوال کد رهگیری کارت ملی خو را پیداکنید و
 					فرآیند بازکردن حساب را انجام دهید.
 				</p>
 			),
@@ -176,7 +176,7 @@ export default function MainPage() {
 								style={{ fontSize: "16px" }}
 								className="tracking-wider text-gray-500 mt-10"
 							>
-								بلو، پلتفرمی تمام دیجیتال است که همه‌ی ��ملیات بانکداری روی
+								بلو، پلتفرمی تمام دیجیتال است که همه‌ی ملیات بانکداری روی
 								اپلیکیشن موبایل و کاملا آنلاین انجام می‌شود. به زبان ساده، بانکی
 								است که همیشه همراه شما خواهد بود.
 							</p>
@@ -206,7 +206,7 @@ export default function MainPage() {
 										className="rounded-3xl bg-blue-100 mt-3 text-center opacity-75"
 										style={{ height: "180px" }}
 									>
-										<h2 className="font-bold">۵ درصد سو�� سپرده</h2>
+										<h2 className="font-bold">۵ درصد سو سپرده</h2>
 										<p className="text-blue-500 mt-3">
 											در بلو برای حداقل مانده موجودی در ماه، سود سالیانه ۵ درصد
 											به صورت ماه‌شمار پرداخت می‌شود.
@@ -271,7 +271,7 @@ export default function MainPage() {
 									className="tracking-wider text-gray-500"
 								>
 									مبالغ سپرده‌های مشتریان در چارچوب ضوابط قانونی و تا سقف قانونی
-									تعیین شده، مورد تض��ین صندوق ضمانت سپرده‌های بانک مرکزی است.
+									تعیین شده، مورد تضین صندوق ضمانت سپرده‌های بانک مرکزی است.
 								</p>
 							</div>
 							<div className="flex gap-3 mt-5">

@@ -4,7 +4,12 @@ import HeaderPage from "./parts/headers/header";
 import NormalFooter from "./parts/footers/normalFooter";
 import Blog from "./parts/contents/blog";
 const { Header, Footer, Content } = Layout;
-export default function BlogPage() {
+interface BlogPageProps {
+	id: string;
+}
+
+export default function BlogPage({ id }: BlogPageProps) {
+	console.log("id2", id);
 	return (
 		<div>
 			<Layout>
@@ -18,7 +23,7 @@ export default function BlogPage() {
 					<HeaderPage bg={"white"} />
 				</Header>
 				<Content>
-					<Blog />
+					<Blog id={id} />
 				</Content>
 				<Footer
 					style={{
