@@ -5,30 +5,30 @@ import NormalFooter from "./parts/footers/normalFooter";
 import BlogsPreview from "./parts/contents/blogsPreview";
 const { Header, Footer, Content } = Layout;
 export default function blogsPreviewPage() {
-	return (
-		<div>
-			<Layout>
-				<Header
-					style={{
-						position: "sticky",
-						height: "fit-content",
-						padding: "0px",
-					}}
-				>
-					<HeaderPage bg={"white"} />
-				</Header>
-				<Content>
-					<BlogsPreview />
-				</Content>
-				<Footer
-					style={{
-						height: "fit-content",
-						padding: "0px",
-					}}
-				>
-					<NormalFooter />
-				</Footer>
-			</Layout>
-		</div>
-	);
+  return (
+    <div>
+      <Layout className="bg-white">
+        <Header
+          style={{
+            position: "sticky",
+            height: "fit-content",
+            padding: "0px",
+          }}
+        >
+          <HeaderPage bg={"white"} />
+        </Header>
+        <Content>
+          <BlogsPreview />
+        </Content>
+        <Footer
+          style={{
+            height: "fit-content",
+            padding: "0px",
+          }}
+        >
+          <NormalFooter />
+        </Footer>
+      </Layout>
+    </div>
+  );
 }

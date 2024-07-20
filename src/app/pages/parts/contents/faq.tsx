@@ -112,12 +112,22 @@ import axios from "axios";
 // ];
 
 export default function FAQ() {
-  const [faqs, setFaqs] = useState([]);
+  const [faqs, setFaqs] = useState<any>([]);
+  const [selectedSubject, setSelectedSubject] = useState<any>();
+  const [items, setItems] = useState<any>();
   useEffect(() => {
     const fetchFaqs = async () => {
       try {
         const response = await axios.get(`http://localhost:3300/Faqs/getAll`);
         setFaqs(response.data);
+        setSelectedSubject(response.data[0].subject);
+        setItems(
+          response.data[0].items.map((element: any) => ({
+            key: element._id,
+            label: element.question,
+            children: <p className="text-wrap text-right ">{element.answer}</p>,
+          }))
+        );
       } catch (error) {
         console.error("Error fetching faqs:", error);
       }
@@ -125,25 +135,15 @@ export default function FAQ() {
     fetchFaqs();
     return () => {};
   }, []);
-  const [selectedSubject, setSelectedSubject] =
-    useState();
-    // faqs[0].subject
-  const [items, setItems] =
-    useState();
-    // faqs[0].items.map((element) => ({
-    //   key: element._id,
-    //   label: element.question,
-    //   children: <p className="text-wrap text-right ">{element.answer}</p>,
-    // }))
 
-  const optionsValue = faqs.map((item) => item.subject);
+  const optionsValue = faqs.map((item: any) => item.subject);
 
   const handleSubjectChange = (value: string) => {
-    const selected = faqs.find((item) => item.subject === value);
+    const selected = faqs.find((item: any) => item.subject === value);
     if (selected) {
       setSelectedSubject(value);
       setItems(
-        selected.items.map((element) => ({
+        selected.items.map((element: any) => ({
           key: element._id,
           label: element.question,
           children: <p className="text-wrap text-right ">{element.answer}</p>,
@@ -206,12 +206,15 @@ export default function FAQ() {
           <h3 className="text-slate-500 m-3 mb-12 place-self-center">
             پاسخ سوالات خود را از دسته‌بندی‌های زیر پیدا کنید
           </h3>
-          <div>
+          <div
+            className="place-items-center text-wrap"
+            style={{ width: "50rem" }}
+          >
             <Segmented
               options={optionsValue}
               value={selectedSubject}
               onChange={handleSubjectChange}
-              className="m-5 place-self-center justify-self-center w-auto"
+              className="m-5 "
             />
             <Collapse
               accordion
@@ -223,7 +226,7 @@ export default function FAQ() {
                   }}
                 />
               )}
-              className="m-3 place-self-center justify-self-center w-auto"
+              className="m-3 "
             />
           </div>
           <div className="flex flex-row m-5">

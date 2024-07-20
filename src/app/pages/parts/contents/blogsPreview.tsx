@@ -111,7 +111,11 @@ export default function BlogsPreview() {
         {blogs.map((blog: any) => (
           <Card
             key={blog._id}
-            className="bg-blue-100 m-2 rounded-md shadow-xl border-transparent text-right text-lg"
+            className={
+              blog._id === "66976bc8952e28da940f7bff"
+                ? "bg-blue-100 m-2 rounded-md shadow-xl border-transparent text-right text-lg -mt-36"
+                : "bg-blue-100 m-2 rounded-md shadow-xl border-transparent text-right text-lg"
+            }
             hoverable
             style={{ width: 610, height: "fit-content" }}
             cover={
